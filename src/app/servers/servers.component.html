@@ -1,0 +1,22 @@
+<p>Yo soy el componente bebé :D</p>
+<input type="text" [(ngModel)]="username">
+<p>{{ username }}</p>
+
+<button [disabled]="!username" (click)="resetearUsername()" mat-raised-button color="warn">SOY UN BOTON</button>
+<p [ngStyle]="{backgroundColor: getColor()}">SOY UN ANUNCIO</p>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Excercise</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="onDisplayDetails()">Display Details</button>
+    <p *ngIf="showSecretInfo">I'm a secret text = 'hi'</p>
+    <p>Cantidad de clicks dados: {{ arraySize }}</p>
+    <div 
+      *ngFor="let item of arrayMachin; let i = index" 
+      [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+      [ngClass]="{mayorCinco: i >= 5}" 
+    >{{item}}</div>
+  </mat-card-content>
+</mat-card>
